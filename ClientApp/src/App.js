@@ -1,0 +1,190 @@
+import React, { useState, useEffect } from 'react';
+import EmployeesSection from "./employee/EmployeesSection";
+
+const App = () => {
+  return (
+    <div>
+      <h1>Employees section</h1>
+      <EmployeesSection />
+    </div>
+  );
+};
+
+export default App;
+
+//current attempt
+/*
+export default function () {
+
+    async function fetchData()  {
+        return fetch("/employees")
+               .then(response => response.json());    
+            }
+    
+    async function getEmployees() {
+        return fetch("/employees").then(response => response.json());
+    }
+
+    async function createEmployee(name, value) {
+        return fetch("/employees", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, value: value })
+        });
+    }
+
+    async function updateEmployee(name, value) {
+        return fetch("/employees", {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: name, value: value })
+        });
+    }
+    
+useEffect(() => {
+    fetchData();
+},[])
+
+    return(
+        <main>
+            <h1>employee list</h1>
+            <ul>
+                {employee && employee.length > 0 && employee.map((Employee, index ) => (
+                    <li key={Employee.name}>{Employee.value}</li>
+                ))}
+            </ul>
+        </main>
+    );
+}
+
+//forms
+    return (
+        <div>
+        <form onSubmit={this.updateEmployee}>
+                <label>
+                    Name:
+                    <input type="text" value={this.state.value} />
+                </label>
+                <label>
+                    Value:
+                    <input type="text" value={this.state.value} />
+                </label>
+                <input type="submit" value="Submit" />
+        </form>
+        <form onSubmit={this.createEmployee}>
+                <label>
+                    Name:
+                    <input type="text" value={this.state.value} />
+                </label>
+                <label>
+                    Value:
+                    <input type="text" value={this.state.value} />
+                </label>
+                <input type="submit" value="Submit" />
+        </form>        
+        </div>
+    );
+}
+
+
+
+//attempt 2 at rendering table
+
+export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { forecasts: [], loading: true };
+      }      
+    componentDidMount() {
+    this.populateWeatherData();
+  }
+
+EMPLOYEES = [ 
+    {name: "Jeff", value: "sdfdsgds"},
+    {name: "John", value: "fdgefgfs"}
+    ]
+
+    static renderEmployeesTable(employees) {
+        return (
+          <table className='table table-striped' aria-labelledby="tabelLabel">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {employees.map(employee =>
+                <tr key={employee.name}>
+                  <td>{employee.name}</td>
+                  <td>{employee.value}</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        );
+      }
+    
+    render() {
+        let contents = this.state.loading
+          ? <p><em>Loading...</em></p>
+          : App.renderEmployeesTable(this.state.employees);
+    
+        return (
+          <div>
+            <h1 id="tabelLabel" >Employees</h1>
+            <p>TEST.</p>
+            {contents}
+          </div>
+        );
+      }
+      async populateEemployeeData() {
+        await fetch("/employees").then(response => response.json());
+        const data = this.getEmployees();
+        this.setState({ forecasts: data, loading: false });
+      }
+    }
+
+
+//attempt 1 at rendering table
+
+async function employeesRow({employee}) {
+        const name = this.props.name;
+        return (
+            <tr>
+                <td>{name}</td>
+                <td>{employee.value}</td>
+            </tr>
+        );
+    }
+
+    async function employeesTable({employees}){
+        const rows = [];
+        employees.forEach((employee) => {
+            rows.push(
+                <employeesRow
+                employee={employee}
+                key = {employee.name} />
+            );
+        }
+        )
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <tr>Value</tr>
+                    </tr>
+                </thead>
+                <tbody>{rows}</tbody>
+            </table>
+        );
+    }    
+    const EMPLOYEES = [ 
+        {name: "Jeff", value: "sdfdsgds"},
+        {name: "John", value: "fdgefgfs"}
+        ]
+
+
+    return (<employeesTable employees={EMPLOYEES} />);
+    */
